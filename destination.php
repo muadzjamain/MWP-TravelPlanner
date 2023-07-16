@@ -34,7 +34,6 @@
         <li class="nav-item  active"><a href="destination.php" class="nav-link">Destination</a></li>
         <li class="nav-item"><a href="item_for_travellers.html" class="nav-link">Item For Travellers</a></li>
         <li class="nav-item"><a href="trips.php" class="nav-link">Trip Planning</a></li>
-        <li class="nav-item"><a href="account.php" class="nav-link">Account</a></li>
       </ul>
     </div>
   </div>
@@ -96,7 +95,7 @@
   $unmae= "root";
   $password = "";
 
-  $db_name = "travel";
+  $db_name = "travelplanner";
 
 $conn = mysqli_connect($sname, $unmae, $password, $db_name);
   if ($conn->connect_error) {
@@ -112,14 +111,15 @@ $conn = mysqli_connect($sname, $unmae, $password, $db_name);
           $imageUrl = $row['image'];
           $name = $row['name'];
           $category = $row['category'];
-         
+          $link = $row['link'];
 
           echo '
           <div class="place">
-              <a href="#"><img class="place-image" src="images/' . $imageUrl . '" alt="' . $name . '"></a>
+            <a href="' . $link . '">
+              <img class="place-image" src="images/'.$imageUrl.'" alt="' . $name . '"> </a>
               <div style="font-size: 150%;">' . $name . '</div>
               <div>' . $category . '</div>
-            </div>';
+          </div>';
 
 
       }

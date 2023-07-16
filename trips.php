@@ -31,11 +31,10 @@
 	        	<li class="nav-item"><a href="destination.php" class="nav-link">Destination</a></li>
 	            <li class="nav-item"><a href="item_for_travellers.html" class="nav-link">Item For Travellers</a></li>
 	            <li class="nav-item  active"><a href="trips.php" class="nav-link">Trip Planning</a></li>
-	        	<li class="nav-item"><a href="account.php" class="nav-link">Account</a></li>
 	        </ul>
 	      </div>
 	    </div>
-	</nav>
+	  </nav>
 <!-- END nav -->
 
     <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
@@ -50,35 +49,34 @@
     </section>
 
     <section class="ftco-section bg-light">
-    	
-    		<div class="row justify-content-center pb-5 mb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2>TRIP PLANNING</h2>
-          </div>
-        </div>
     
-        <head>
-    <style>
-      /* Add some basic styling */
-      .planning {
-        display: inline-block;
-        margin: 10px;
-        text-align: center;
-      }
-       .place-images {
-        max-width: 370px;
-      } 
-    </style>
-</head>
+    <head>
+      <style>
+        /* Add some basic styling */
+        .planning {
+          display: inline-block;
+          margin: 10px;
+          text-align: center;
+        }
+        .place-images {
+          max-width: 370px;
+        } 
+        .button-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+        }
+      </style>
+    </head>
 
 <div class="text-center">
 <?php
 // Connect to your database
-$sname= "localhost";
-$unmae= "root";
+$sname = "localhost";
+$unmae = "root";
 $password = "";
-
-$db_name = "visitjaybeee";
+$db_name = "travelplanner";
 
 $conn = mysqli_connect($sname, $unmae, $password, $db_name);
 if ($conn->connect_error) {
@@ -86,45 +84,44 @@ if ($conn->connect_error) {
 }
 
 // Fetch places data from the database
-$sql = "SELECT * FROM trip ";
+$sql = "SELECT * FROM trip";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
-      $tripId = $row['id'];
-      $image = $row['image'];
-      $package = $row['package'];
-      $price = $row['price'];
-      $planning = $row['planning'];
-      
-      echo '
-    <div class="planning block-7">
-          <div class="image-container">
-    <div align="center" >
-      
-          <img class="place-images" src="images/'.$image.'" ></a>
-          <div class="text-center p-4">
-          <span class="excerpt d-block">' . $package . '</span>
-          <span class="price"><sup>RM</sup> <span class="number">' . $price . '</span> <sub>/per person</sub></span>
+    while ($row = $result->fetch_assoc()) {
+        $tripId = $row['id'];
+        $image = $row['image'];
+        $package = $row['package'];
+        $price = $row['price'];
+        $planning = $row['planning'];
+        $bookLink = $row['book_link'];
 
-              <ul class="pricing-text mb-5">
-                  <li><span class="fa fa-check mr-2"></span>Food Recommended</li>
-                  <li><span class="fa fa-check mr-2"></span>Recommended Places</li>
-              
-          <a href="images/'.$planning.'" class="icon image-popup d-flex justify-content-center align-items-center btn btn-primary d-block px-2 py-3">Trip Planning</a>
-
-          </div>
-          </div>
-          </div>
-          
-      </div>';
-  }
+        echo '
+        <div class="planning block-7">
+            <div class="image-container">
+                <div align="center">
+                    <img class="place-images" src="images/'.$image.'">
+                    <div class="text-center p-4">
+                        <span class="excerpt d-block">' . $package . '</span>
+                        <span class="price"><sup>RM</sup> <span class="number">' . $price . '</span> <sub>/per person</sub></span>
+                        <ul class="pricing-text mb-5">
+                            <li><span class="fa fa-check mr-2"></span>Food Recommended</li>
+                            <li><span class="fa fa-check mr-2"></span>Recommended Places</li>
+                        </ul>
+                        <div class="button-container">
+                            <a href="images/'.$planning.'" class="button icon image-popup d-flex justify-content-center align-items-center btn btn-primary d-block px-2 py-3">Trip Planning</a>
+                            <a href="booknowpage.html" class="button icon d-flex justify-content-center align-items-center btn btn-primary d-block px-2 py-3" target="_blank">Book Trip</a>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>';
+    }
 }
 
 $conn->close();
 ?>
-
-  </section>
+</div>
 
 <!-- FOOTER -->
 <footer class="footer">
