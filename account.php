@@ -30,10 +30,10 @@
 	        <ul class="navbar-nav ml-auto">
 	        	<li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
 	        	<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	        	<li class="nav-item"><a href="destination.html" class="nav-link">Destination</a></li>
+	        	<li class="nav-item"><a href="destination.php" class="nav-link">Destination</a></li>
 	          <li class="nav-item"><a href="item_for_travellers.html" class="nav-link">Item For Travellers</a></li>
-	          <li class="nav-item"><a href="trip.html" class="nav-link">Trip Planning</a></li>
-	        	<li class="nav-item  active"><a href="account.html" class="nav-link">Account</a></li>
+	          <li class="nav-item"><a href="trips.php" class="nav-link">Trip Planning</a></li>
+	        	<li class="nav-item  active"><a href="account.php" class="nav-link">Account</a></li>
 	        </ul>
 	      </div>
 	    </div>
