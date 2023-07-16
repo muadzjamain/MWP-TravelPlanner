@@ -96,7 +96,7 @@
   $unmae= "root";
   $password = "";
 
-  $db_name = "visitjaybeee";
+  $db_name = "travel";
 
 $conn = mysqli_connect($sname, $unmae, $password, $db_name);
   if ($conn->connect_error) {
@@ -112,15 +112,14 @@ $conn = mysqli_connect($sname, $unmae, $password, $db_name);
           $imageUrl = $row['image'];
           $name = $row['name'];
           $category = $row['category'];
-          $link = $row['link'];
+         
 
           echo '
           <div class="place">
-            <a href="' . $link . '">
-              <img class="place-image" src="images/'.$imageUrl.'" alt="' . $name . '"> </a>
+              <a href="#"><img class="place-image" src="images/' . $imageUrl . '" alt="' . $name . '"></a>
               <div style="font-size: 150%;">' . $name . '</div>
               <div>' . $category . '</div>
-          </div>';
+            </div>';
 
 
       }
